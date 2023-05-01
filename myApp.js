@@ -9,7 +9,7 @@ console.log("Hello World")
     res.send("Hello Express")
 })*/
 
-
+//Third step solution
 
 app.get('/', (req, res) => {
     const path = absolutePath = __dirname + '/views/index.html'
@@ -18,7 +18,15 @@ app.get('/', (req, res) => {
 
 const pubicPath = __dirname + '/public'
 
+//Fourth step solution
+
 app.use('/public', express.static(pubicPath))
+
+//Fifth step solution 
+
+app.get('/json', (req, res) => {
+    res.json({ "message": "Hello json" })
+})
 
 
 
