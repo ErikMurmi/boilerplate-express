@@ -55,6 +55,12 @@ app.get('/now', (req, res, next) => {
 }
 )
 
+//9th step solution 
+
+app.get('/:word/echo', (req, res) => {
+    res.json({ 'echo': req.params.word })
+})
+
 
 
 
