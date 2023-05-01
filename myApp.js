@@ -11,6 +11,13 @@ process.env.MESSAGE_STYLE = "uppercase";
     res.send("Hello Express")
 })*/
 
+//7th step solution
+
+app.use((req, res, next) => {
+    console.log(`${req.method} ${req.path} - ${req.ip}`)
+    next()
+})
+
 //Third step solution
 
 app.get('/', (req, res) => {
