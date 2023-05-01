@@ -1,8 +1,8 @@
 // dotenv config for access env files
-require('dotenv').config()
+
 let express = require('express');
 let app = express();
-
+require('dotenv').config()
 console.log("Hello World")
 
 //GET / handler for second step
@@ -34,10 +34,9 @@ app.use('/public', express.static(pubicPath))
 
 app.get('/json', (_, res) => {
     const message = "Hello json"
-    res.json({
+    return res.json({
         'message':
-            process.env.MESSAGE_STYLE === "uppercase"
-                ? message.toUpperCase() : message
+            process.env.MESSAGE_STYLE === "uppercase" ? message.toUpperCase() : message
     })
 })
 
