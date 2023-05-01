@@ -3,15 +3,18 @@ let app = express();
 
 console.log("Hello World")
 
-//GET / handler
+//GET / handler for second step
+
+/*app.get('/', (req, res) => {
+    res.send("Hello Express")
+})*/
+
+
 
 app.get('/', (req, res) => {
-    res.send("Hello Express")
+    const path = absolutePath = __dirname + '/views/index.html'
+    res.sendFile(path)
 })
-
-
-
-
 
 
 
