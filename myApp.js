@@ -45,7 +45,15 @@ app.get("/json", function (req, res) {
     else res.json({ "message": "Hello json" })
 });
 
+// 8th step solution
 
+app.get('/now', (req, res, next) => {
+    req.time = Date().toString()
+    next()
+}, (req, res) => {
+    res.json({ 'time': req.time })
+}
+)
 
 
 
