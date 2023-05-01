@@ -13,8 +13,8 @@ process.env.MESSAGE_STYLE = "uppercase";
 })*/
 
 //7th step solution
-
-app.use(bodyParser.urlencoded({ extended: false }), (req, res, next) => {
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
 });
@@ -73,8 +73,9 @@ app.get("/name", (req, res) => {
 });
 
 app.post("/name", (req, res) => {
-  const { first, last } = req.query;
-  console.log("%j", { name: `${first} ${last}` });
+  const { first, last } = req.body;
+  console.log({ first, last });
+  res.json({ name: `${first} ${last}` });
 });
 
 module.exports = app;
