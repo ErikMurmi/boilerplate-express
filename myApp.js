@@ -16,6 +16,9 @@ app.get('/', (req, res) => {
     res.sendFile(path)
 })
 
+const pubicPath = __dirname + '/public'
+
+app.use('/public', express.static(pubicPath))
 
 
 
