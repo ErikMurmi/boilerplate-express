@@ -61,6 +61,12 @@ app.get('/:word/echo', (req, res) => {
     res.json({ 'echo': req.params.word })
 })
 
+//10th step solution
+
+app.get('/name', (req, res) => {
+    const { first, last } = req.query
+    res.json({ 'name': `${first} ${last}` })
+})
 
 
 
