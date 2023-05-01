@@ -1,4 +1,4 @@
-// dotenv config for access variables
+// dotenv config for access env files
 require('dotenv').config()
 let express = require('express');
 let app = express();
@@ -34,6 +34,7 @@ app.use('/public', express.static(pubicPath))
 
 app.get('/json', (_, res) => {
     const message = "Hello json"
+    console.log(process.env.MESSAGE_STYLE)
     res.json({
         'message':
             process.env.MESSAGE_STYLE === "uppercase"
