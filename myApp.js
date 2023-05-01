@@ -1,3 +1,5 @@
+// dotenv config for access variables
+require('dotenv').config()
 let express = require('express');
 let app = express();
 
@@ -24,11 +26,20 @@ app.use('/public', express.static(pubicPath))
 
 //Fifth step solution 
 
-app.get('/json', (req, res) => {
+/*app.get('/json', (req, res) => {
     res.json({ "message": "Hello json" })
+})*/
+
+//Sixth step solution 
+
+app.get('/json', (_, res) => {
+    const message = "Hello json"
+    res.json({
+        'message':
+            process.env.MESSAGE_STYLE === "uppercase"
+                ? message.toUpperCase() : message
+    })
 })
-
-
 
 
 
